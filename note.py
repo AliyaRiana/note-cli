@@ -37,7 +37,7 @@ def main():
     while True:
         print("\nTo-Do List:")
         show(todo_list)
-        cmd = input("\n[tambah/hapus/keluar]: ").strip().lower()
+        cmd = cmd = input("\n[tambah/hapus/clear/keluar]: ").strip().lower()
         if cmd == "tambah":
             item = input("Apa yang ingin ditambahkan? ")
             add(todo_list, item)
@@ -47,6 +47,10 @@ def main():
                 remove(todo_list, num)
             except ValueError:
                 print("Masukkan angka.")
+        elif cmd == "clear":
+             todo_list = []
+             save_todo(todo_list)
+             print("Semua tugas dihapus.")
         elif cmd == "keluar":
             break
         else:
